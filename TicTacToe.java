@@ -6,12 +6,14 @@ import java.util.Scanner;
 public class TicTacToe{
 
     static char[] board = new char[9];
+    static char playerInput;
 
     public static void main(String[] args) {
         System.out.println("Welcome to the Tic-Tac-Toe Game");
         createBoard();
         playerChoice();
         showBoard();
+        desiredMove();
     }
 
     public static void createBoard(){
@@ -25,7 +27,7 @@ public class TicTacToe{
         char computer;
         Scanner sc = new Scanner(System.in);
         System.out.println("Please choose between X and O");
-        char playerInput = sc.next().charAt(0);
+        playerInput = sc.next().charAt(0);
 
         if (playerInput=='X' || playerInput=='x'){
             computer = 'O';
@@ -39,12 +41,20 @@ public class TicTacToe{
 
     public static void showBoard(){
         System.out.println("Tic-Tac-Toe Board");
-        System.out.println("+-----+-----+-----+");
-        System.out.println("|  " +board[0]+"  |  " +board[1]+ "  |  " +board[2]+ "  |");
-        System.out.println("+-----+-----+-----+");
-        System.out.println("|  " +board[3]+"  |  " +board[4]+ "  |  " +board[5]+ "  |");
-        System.out.println("+-----+-----+-----+");
-        System.out.println("|  " +board[6]+"  |  " +board[7]+ "  |  " +board[8]+ "  |");
-        System.out.println("+-----+-----+-----+");
+        System.out.println("     1     2     3");
+        System.out.println("        +     +      ");
+        System.out.println("A    " +board[0]+"  |  " +board[1]+ "  |  " +board[2]+ "   ");
+        System.out.println("  +-----+-----+-----+");
+        System.out.println("B    " +board[3]+"  |  " +board[4]+ "  |  " +board[5]+ "   ");
+        System.out.println("  +-----+-----+-----+");
+        System.out.println("C    " +board[6]+"  |  " +board[7]+ "  |  " +board[8]+ "   ");
+        System.out.println("        +     +      ");
+    }
+
+    public static void desiredMove(){
+        System.out.println("Please Choose a location where you want to put X or O");
+        Scanner sc = new Scanner(System.in);
+        String chooseLocation = sc.next();
+        System.out.println("You Choose:- " +chooseLocation+ " block");
     }
 }
