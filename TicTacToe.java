@@ -426,6 +426,8 @@ public class TicTacToe {
         }
     }
 
+    /* Computer's last priority is side cells if they are available
+    then it can play on that */
     public static void computerThirdPriority(){
         double ran = Math.floor(Math.random()*10%4);
         switch ((int) ran) {
@@ -499,6 +501,7 @@ public class TicTacToe {
         }
     }
 
+//    This method will control the flow of the game
     public static void gameFlow() {
         blankSpaces=9;
         while (blankSpaces>0) {
