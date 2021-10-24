@@ -354,6 +354,8 @@ public class TicTacToe {
         }
     }
 
+    /*    Computer's first priority move is corners it can check
+      if the corners is available then computer can play on that first */
     public static void computerFirstPriority(){
         double random = Math.floor(Math.random()*10%4);
 
