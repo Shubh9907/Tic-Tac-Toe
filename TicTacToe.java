@@ -415,6 +415,8 @@ public class TicTacToe {
     }
 
 
+/*    Computer's second priority move is the center it can check
+    if the center is available then computer can play on that */
     public static void computerSecondPriority(){
         if (board[5] == ' ') {
             board[5] = computerCharacter;
