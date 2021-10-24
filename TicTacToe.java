@@ -11,10 +11,10 @@ public class TicTacToe {
     static char playerCharacter;
     static char computerCharacter;
     static String playerWin, playerLose;
-    static double toss = Math.floor(Math.random() * 10 % 2);
+    static double toss;
     static int blankSpaces;
-    static int flag = 0;
-    static int count=0, check1=0, check2=0, check3=0, check4=0;
+    static int flag;
+    static int count, check1, check2, check3, check4;
 
     public static void main(String[] args) {
         System.out.println("Welcome to the Tic-Tac-Toe Game");
@@ -23,6 +23,7 @@ public class TicTacToe {
         showBoard();
         firstTurn();
         gameFlow();
+        playAgain();
     }
 
 //    To create a blank tic-tac-toe board
@@ -357,6 +358,7 @@ public class TicTacToe {
     /*    Computer's first priority move is corners it can check
       if the corners is available then computer can play on that first */
     public static void computerFirstPriority(){
+        count=0;check1=0;check2=0;check3=0;check4=0;
         double random = Math.floor(Math.random()*10%4);
 
         switch ((int) random){
@@ -468,6 +470,7 @@ public class TicTacToe {
 
 //    Toss To know who is going to take first turn
     public static void firstTurn() {
+        toss = Math.floor(Math.random() * 10 % 2);
         if (toss == 1) {
             System.out.println("You won the toss so First turn is yours");
         } else {
@@ -504,6 +507,8 @@ public class TicTacToe {
 //    This method will control the flow of the game
     public static void gameFlow() {
         blankSpaces=9;
+        flag=0;
+
         while (blankSpaces>0) {
             if (toss == 1) {
                 if (flag==1){
@@ -527,6 +532,26 @@ public class TicTacToe {
                 playerMove();
                 blankSpaces--;
                 checkWinLoseOrTie();}
+        }
+    }
+
+//    This method is used to check if player want to play again
+    public static void playAgain(){
+        System.out.println("Enter 'Y' if you want to play again or Enter 'N' to exit");
+        Scanner sc = new Scanner(System.in);
+        char input = sc.next().toUpperCase(Locale.ROOT).charAt(0);
+        if (input=='Y'){
+            System.out.println("Welcome to the Tic-Tac-Toe Game");
+            createBoard();
+            playerChoice();
+            showBoard();
+            firstTurn();
+            gameFlow();
+            playAgain();
+        }else if (input=='N'){
+            System.out.println("Thanks for Playing Tic-Tac-Toe Game");
+        }else {
+            System.out.println("Your input is invalid, Thanks for Playing");
         }
     }
 }
