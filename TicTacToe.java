@@ -201,6 +201,7 @@ public class TicTacToe {
         String c333 = "" + board[1] + board[5];
 
 
+//        Computer will check if he can win
         if (board[1] == ' ' && (a1 + computerCharacter).equals(playerLose)) {
             board[1] = computerCharacter;
             showBoard();
@@ -273,7 +274,10 @@ public class TicTacToe {
         } else if (board[9] == ' ' && (c333 + computerCharacter).equals(playerLose)) {
             board[9] = computerCharacter;
             showBoard();
-        } else if (board[1] == ' ' && (a1 + playerCharacter).equals(playerWin)) {
+        }
+
+//        Computer will check if the opponent is winning then it will block the opponent
+        else if (board[1] == ' ' && (a1 + playerCharacter).equals(playerWin)) {
             board[1] = computerCharacter;
             showBoard();
         } else if (board[1] == ' ' && (a11 + playerCharacter).equals(playerWin)) {
